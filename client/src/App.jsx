@@ -1,5 +1,5 @@
 import React from "react";  
-import { Routes,Route} from "react-router-dom";
+import { Routes,Route, useLocation} from "react-router-dom";
 import Home from "./pages/students/Home.jsx";
 import CourseList from "./pages/students/CourseList.jsx";
 import CourseDetails from "./pages/students/CourseDetails.jsx";
@@ -11,11 +11,16 @@ import Dashboard from "./pages/educators/Dashboard.jsx";
 import StudentsEnrolled from "./pages/educators/StudentsEnrolled.jsx";
 import MyCourses from "./pages/educators/MyCourses.jsx";
 import AddCourse from "./pages/educators/AddCourse.jsx";
+import Navbar from "./components/students/Navbar.jsx";
 
 
 const App = () => {
+  const { pathname } = useLocation();
+  const isEducatorRoute = pathname.startsWith("/educator"); // Check if the current route matches the educator routes 
+
   return (
-    <div>
+    <div className="text-default min-h-scree bg-white">
+      {!isEducatorRoute && <Navbar/>}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/course-list" element={<CourseList/>}/>
