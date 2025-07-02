@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchBar from './SearchBar'
 
 const Hero = () => {
   return (
@@ -10,7 +11,9 @@ const Hero = () => {
 
       <p className='md:block hidden text-gray-500 max-w-2xl mx-auto '>GyaanSetu brings together expert instructors, engaging content, and a vibrant learning community—all designed to support your personal growth and professional success. Whether you're upskilling for a career move or exploring a new passion, we are here to guide your learning journey.</p>
       <p className='md:hidden text-gray-500 max-w-sm mx-auto'>We bring together expert instructors, engaging content to support your personal growth and professional success. </p>
+      <SearchBar/>
     </div>
+
   )
 }
 
