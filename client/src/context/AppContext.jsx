@@ -16,13 +16,26 @@ export const AppContextProvider = (props) => {
       setAllCourses(dummyCourses)
     }
 
+    //function to calculate avg rating of course.
+    const calculateRating = (course)=>{
+      if(course.courseRatings.length ===0 ){
+        return 0;
+      }
+        let totalRating = 0;
+        course.courseRatings.forEach(rating =>{
+          totalRating += rating.rating
+        }
+        )
+        return totalRating/course.courseRatings.length
+    }
+
     useEffect(()=>{
       fetchAllCourses()
     },[])
 
   const contextValue = {
     // Define any state or functions you want to provide to the context
-    currency,allCourses,navigate,
+    currency,allCourses,navigate,calculateRating
 
   };
 
