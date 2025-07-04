@@ -485,6 +485,35 @@ export const dummyCourses = [
   }
 ];
 
+export const dummyTestimonial = [
+  {
+    name: "Aarav Sharma",
+    role: "B.Tech (CSE), 2nd Year",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    rating: 4.9,
+    feedback:
+      "The JavaScript track turned my basic coding skills into a solid foundation. Project‑based lessons and quick mentor feedback kept me engaged from day one."
+  },
+  {
+    name: "Meera Nair",
+    role: "MBA Candidate",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    rating: 4.7,
+    feedback:
+      "I juggled classes and work, so the bite‑sized business analytics modules were perfect. The case‑study approach helped me apply concepts directly to my internship."
+  },
+  {
+    name: "Rohan Patel",
+    role: "UX Design Bootcamp Graduate",
+    image: "https://randomuser.me/api/portraits/men/85.jpg",
+    rating: 5.0,
+    feedback:
+      "From Figma basics to a polished capstone project, the course covered it all. The peer‑review sessions felt like real client critiques—huge confidence booster!"
+  }
+
+
+];
+
 
 
 
