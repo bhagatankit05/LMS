@@ -7,6 +7,7 @@ import tcs_icon from  './tcs_icon.png'
 import devsync from './devsync.png'
 import star_icon from './star_icon.jpg'
 import star_blank from './star_blank.png'
+import arrow_icon from './arrow_icon.png'
 
 
 export const assets = {
@@ -19,6 +20,7 @@ export const assets = {
   devsync:devsync,
   star_icon:star_icon,
   star_blank : star_blank,
+  arrow_icon:arrow_icon,
 }
 
 export const dummyCourses = [
