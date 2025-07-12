@@ -412,7 +412,7 @@ export const dummyCourses = [
     createdAt: "2025-04-10T11:45:00.000Z",
     updatedAt: "2025-07-03T08:30:00.000Z",
     __v: 1,
-    courseThumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqEPN0MIYMMEOPcqi11fzsqGrrkwJ4ZtnYjg&s"
+    courseThumbnail: "https://i.ytimg.com/vi/Oe421EPjeBE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAsak3OOMJqlTLYq-BTg3acLSqC-w"
   },
 
   /* ───────────────────────────── 6. DIGITAL MARKETING ESSENTIALS ────────────────── */
@@ -486,7 +486,226 @@ export const dummyCourses = [
     updatedAt: "2025-07-02T17:55:00.000Z",
     __v: 0,
     courseThumbnail: "https://fueler.io/storage/users/timeline_image/1659279686-jy2p84ykvimsekzsjsx3.png"
-  }
+  },
+  /* ───────────────────────────── 7. DATA STRUCTURES & ALGORITHMS ───────────────────── */
+{
+  _id: "65e1b72c118f62fa82349f27",
+  courseTitle: "Data Structures & Algorithms",
+  courseDescription: `
+    <h2>Crack Coding Interviews</h2>
+    <p>Master the essential data structures and algorithms needed for technical interviews and real-world software engineering problems.</p>
+    <ul>
+      <li>Arrays, Linked Lists, Trees & Graphs</li>
+      <li>Sorting & Searching Algorithms</li>
+      <li>Dynamic Programming & Recursion</li>
+    </ul>
+  `,
+  coursePrice: 59.99,
+  isPublished: true,
+  discount: 20,
+  courseContent: [
+    {
+      chapterId: "chapter1",
+      chapterOrder: 1,
+      chapterTitle: "Foundations",
+      chapterContent: [
+        {
+          lectureId: "lecture1",
+          lectureTitle: "Why DSA Matters?",
+          lectureDuration: 14,
+          lectureUrl: "https://youtu.be/8hly31xKli0",
+          isPreviewFree: true,
+          lectureOrder: 1
+        },
+        {
+          lectureId: "lecture2",
+          lectureTitle: "Arrays and Strings",
+          lectureDuration: 17,
+          lectureUrl: "https://youtu.be/z9bZufPHFLU",
+          isPreviewFree: false,
+          lectureOrder: 2
+        }
+      ]
+    },
+    {
+      chapterId: "chapter2",
+      chapterOrder: 2,
+      chapterTitle: "Intermediate DSA",
+      chapterContent: [
+        {
+          lectureId: "lecture3",
+          lectureTitle: "Trees & Binary Search Trees",
+          lectureDuration: 22,
+          lectureUrl: "https://youtu.be/fAAZixBzIAI",
+          isPreviewFree: true,
+          lectureOrder: 1
+        },
+        {
+          lectureId: "lecture4",
+          lectureTitle: "Dynamic Programming Basics",
+          lectureDuration: 25,
+          lectureUrl: "https://youtu.be/tyB0ztf0DNY",
+          isPreviewFree: false,
+          lectureOrder: 2
+        }
+      ]
+    }
+  ],
+  educator: "6801e2749dfc92ea17e3ba66",
+  enrolledStudents: [],
+  courseRatings: [],
+  createdAt: "2025-07-12T10:00:00.000Z",
+  updatedAt: "2025-07-12T10:00:00.000Z",
+  __v: 0,
+  courseThumbnail: "https://media.geeksforgeeks.org/img-practice/prod/courses/198/Mobile/Content/dsa_1723009331.png"
+},
+
+/* ───────────────────── 8. MACHINE LEARNING WITH PYTHON ───────────────────── */
+{
+  _id: "65e1c29b7b97d24b45cbf883",
+  courseTitle: "Machine Learning with Python",
+  courseDescription: `
+    <h2>Hands-on Machine Learning</h2>
+    <p>Dive into supervised and unsupervised learning using real-world datasets and Python libraries like scikit-learn and pandas.</p>
+    <ul>
+      <li>Linear Regression & Classification</li>
+      <li>Clustering and Model Evaluation</li>
+      <li>Real‑world ML Projects</li>
+    </ul>
+  `,
+  coursePrice: 74.99,
+  isPublished: true,
+  discount: 15,
+  courseContent: [
+    {
+      chapterId: "chapter1",
+      chapterOrder: 1,
+      chapterTitle: "ML Basics",
+      chapterContent: [
+        {
+          lectureId: "lecture1",
+          lectureTitle: "Intro to ML & Workflow",
+          lectureDuration: 20,
+          lectureUrl: "https://youtu.be/GwIo3gDZCVQ",
+          isPreviewFree: true,
+          lectureOrder: 1
+        },
+        {
+          lectureId: "lecture2",
+          lectureTitle: "Data Preprocessing with Pandas",
+          lectureDuration: 18,
+          lectureUrl: "https://youtu.be/r-uOLxNrNk8",
+          isPreviewFree: false,
+          lectureOrder: 2
+        }
+      ]
+    },
+    {
+      chapterId: "chapter2",
+      chapterOrder: 2,
+      chapterTitle: "Supervised Learning",
+      chapterContent: [
+        {
+          lectureId: "lecture3",
+          lectureTitle: "Linear Regression",
+          lectureDuration: 21,
+          lectureUrl: "https://youtu.be/9yl6-HEY7_s",
+          isPreviewFree: true,
+          lectureOrder: 1
+        },
+        {
+          lectureId: "lecture4",
+          lectureTitle: "Classification Models",
+          lectureDuration: 23,
+          lectureUrl: "https://youtu.be/5ESKFA1OyfQ",
+          isPreviewFree: false,
+          lectureOrder: 2
+        }
+      ]
+    }
+  ],
+  educator: "6807b92df457cd76b5e292e3",
+  enrolledStudents: [],
+  courseRatings: [],
+  createdAt: "2025-07-12T10:10:00.000Z",
+  updatedAt: "2025-07-12T10:10:00.000Z",
+  __v: 0,
+  courseThumbnail: "https://cdn.slidesharecdn.com/ss_thumbnails/machinelearningwithpythonppt-230605123325-8b1d6277-thumbnail.jpg?width=640&height=640&fit=bounds"
+},
+
+/* ───────────────────────── 9. CLOUD COMPUTING WITH AWS ───────────────────────── */
+{
+  _id: "65e1c5e8e34dd30e85f4f971",
+  courseTitle: "Cloud Computing with AWS",
+  courseDescription: `
+    <h2>Master AWS Cloud Fundamentals</h2>
+    <p>This course teaches core AWS services such as EC2, S3, IAM, and Lambda with real deployment practices.</p>
+    <ul>
+      <li>Understand cloud concepts & architecture</li>
+      <li>Hands-on with EC2, S3 & RDS</li>
+      <li>Deploy a serverless project with AWS Lambda</li>
+    </ul>
+  `,
+  coursePrice: 79.99,
+  isPublished: true,
+  discount: 10,
+  courseContent: [
+    {
+      chapterId: "chapter1",
+      chapterOrder: 1,
+      chapterTitle: "Cloud Basics",
+      chapterContent: [
+        {
+          lectureId: "lecture1",
+          lectureTitle: "What is Cloud Computing?",
+          lectureDuration: 16,
+          lectureUrl: "https://youtu.be/M988_fsOSWo",
+          isPreviewFree: true,
+          lectureOrder: 1
+        },
+        {
+          lectureId: "lecture2",
+          lectureTitle: "AWS Global Infrastructure",
+          lectureDuration: 18,
+          lectureUrl: "https://youtu.be/ulprqHHWlng",
+          isPreviewFree: false,
+          lectureOrder: 2
+        }
+      ]
+    },
+    {
+      chapterId: "chapter2",
+      chapterOrder: 2,
+      chapterTitle: "AWS Services",
+      chapterContent: [
+        {
+          lectureId: "lecture3",
+          lectureTitle: "Working with EC2",
+          lectureDuration: 20,
+          lectureUrl: "https://youtu.be/TWmVJ_6WXD0",
+          isPreviewFree: true,
+          lectureOrder: 1
+        },
+        {
+          lectureId: "lecture4",
+          lectureTitle: "Intro to AWS Lambda",
+          lectureDuration: 15,
+          lectureUrl: "https://youtu.be/eOBq__h4OJ4",
+          isPreviewFree: false,
+          lectureOrder: 2
+        }
+      ]
+    }
+  ],
+  educator: "680bd091b875eead213ef473",
+  enrolledStudents: [],
+  courseRatings: [],
+  createdAt: "2025-07-12T10:20:00.000Z",
+  updatedAt: "2025-07-12T10:20:00.000Z",
+  __v: 0,
+  courseThumbnail: "https://i.ytimg.com/vi/3ef9pWU78H8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDs2DPTe9LcgflWtZnns5s_FNkpSg"
+}
+
 ];
 
 export const dummyTestimonial = [
