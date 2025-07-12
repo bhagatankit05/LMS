@@ -9,6 +9,7 @@ import star_icon from './star_icon.jpg'
 import star_blank from './star_blank.png'
 import arrow_icon from './arrow_icon.png'
 import gyaansetu_logo from './gyaansetu_logo.png'
+import cross from './cross.png'
 
 
 export const assets = {
@@ -22,7 +23,8 @@ export const assets = {
   star_icon:star_icon,
   star_blank : star_blank,
   arrow_icon:arrow_icon,
-  gyaansetu_logo:gyaansetu_logo
+  gyaansetu_logo:gyaansetu_logo,
+  cross:cross,
 }
 
 export const dummyCourses = [
