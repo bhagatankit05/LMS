@@ -35,7 +35,7 @@ const CourseDetails = () => {
               }}
             ></div>
             {/* review and ratings*/}
-            <div className='flex items-center space-x-2'> 
+            <div className='flex items-center space-x-2 pt-3 pb-1 text-sm'> 
                       <p>{calculateRating(courseData)}</p>
                       <div className='flex'>
                         {[...Array(5)].map((_, i) => (
@@ -43,8 +43,10 @@ const CourseDetails = () => {
                           <img key={i} src={i < Math.floor(calculateRating(courseData)) ? assets.star_icon : assets.star_blank} alt="rating star" className='w-3.5 h-3.5'/>
                         ))}
                       </div>
-                      <p className='text-gray-500'>{courseData.courseRatings.length}</p>
+                      <p className='text-blue-600'>({courseData.courseRatings.length} {courseData.courseRatings.length > 1 ? 'ratings':'rating'})</p>
+                      <p>{courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'students':'student'}</p>
                     </div>
+                    <p className='text-sm'> Course by <span className='text-blue-600'>Ankit Bhagat</span></p>
           </div>
 
           {/* Right column (optional - you can place image/video/etc.) */}
