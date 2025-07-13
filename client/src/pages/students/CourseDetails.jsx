@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import Loading from '../../components/students/Loading';
+import { assets } from '../../assets/asset';
 
 const CourseDetails = () => {
   const { id } = useParams();
   const [courseData, setCourseData] = useState(null);
-  const { allCourses } = useContext(AppContext);
+  const { allCourses,calculateRating} = useContext(AppContext);
 
   const fetchCourseData = () => {
     const findCourse = allCourses.find(course => course._id === id);
@@ -33,6 +34,17 @@ const CourseDetails = () => {
                 __html: courseData.courseDescription.slice(0, 500) + '...',
               }}
             ></div>
+            {/* review and ratings*/}
+            <div className='flex items-center space-x-2'> 
+                      <p>{calculateRating(courseData)}</p>
+                      <div className='flex'>
+                        {[...Array(5)].map((_, i) => (
+                          
+                          <img key={i} src={i < Math.floor(calculateRating(courseData)) ? assets.star_icon : assets.star_blank} alt="rating star" className='w-3.5 h-3.5'/>
+                        ))}
+                      </div>
+                      <p className='text-gray-500'>{courseData.courseRatings.length}</p>
+                    </div>
           </div>
 
           {/* Right column (optional - you can place image/video/etc.) */}
