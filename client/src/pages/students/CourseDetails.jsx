@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import Loading from '../../components/students/Loading';
 import { assets } from '../../assets/asset';
+import humanizeDuration from 'humanize-duration';
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -61,6 +62,26 @@ const CourseDetails = () => {
                                   </div>
                                   <p className='text-sm md:text-default'>{chapter.chapterContent.length} lectures - {calculateChapterTime(chapter)}</p>
                                 </div>
+                                <div className='overflow-hidden transition-all duration-300 max-h-96'>
+                                  <ul>
+                                    {chapter.chapterContent.map((lecture, i)=>(
+                                      <li key={i}>
+                                        <img src={assets.play_icon} alt="play-icon" className='w-4 h-4 mt-1'/>
+                                        <div>
+                                          <p>{lecture.lectureTitle}</p>
+                                          <div>
+                                              {lecture.isPreviewFree && <p> Preview</p>}
+                                              <p>
+                                                {humanizeDuration(lecture.lectureDuration * 60 * 1000, {units: ['h' , 'm']})}
+                                              </p>
+                                          </div>
+                                        </div>
+                                      </li>
+
+                                    ))}
+                                  </ul>
+                                  </div>
+
                             </div>
                           ))}
                       </div>
