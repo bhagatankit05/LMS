@@ -66,7 +66,7 @@ export const AppContextProvider = (props) => {
 
   const contextValue = {
     // Define any state or functions you want to provide to the context
-    currency,allCourses,navigate,calculateRating,isEducator,setIsEducator,calculateNoOfLectures,calculateCourseDuration
+    currency,allCourses,navigate,calculateRating,isEducator,setIsEducator,calculateNoOfLectures,calculateCourseDuration,calculateChapterTime
 
   };
 
