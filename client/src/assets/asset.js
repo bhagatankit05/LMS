@@ -10,6 +10,7 @@ import star_blank from './star_blank.png'
 import arrow_icon from './arrow_icon.png'
 import gyaansetu_logo from './gyaansetu_logo.png'
 import cross from './cross.png'
+import down_arrow_head from './down_arrow_head.png'
 
 
 export const assets = {
@@ -25,6 +26,7 @@ export const assets = {
   arrow_icon:arrow_icon,
   gyaansetu_logo:gyaansetu_logo,
   cross:cross,
+  down_arrow_head:down_arrow_head,
 }
 
 export const dummyCourses = [
