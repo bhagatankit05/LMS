@@ -7,7 +7,7 @@ import { assets } from '../../assets/asset';
 const CourseDetails = () => {
   const { id } = useParams();
   const [courseData, setCourseData] = useState(null);
-  const { allCourses,calculateRating} = useContext(AppContext);
+  const { allCourses,calculateRating,calculateNoOfLectures,calculateCourseDuration,calculateChapterTime} = useContext(AppContext);
 
   const fetchCourseData = () => {
     const findCourse = allCourses.find(course => course._id === id);
@@ -47,6 +47,26 @@ const CourseDetails = () => {
                       <p>{courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'students':'student'}</p>
                     </div>
                     <p className='text-sm'> Course by <span className='text-blue-600'>Ankit Bhagat</span></p>
+
+                    <div className='pt-8 text-gray-800'> 
+                      <h2 className='text-xl font-semibold'>Course Structure</h2>
+
+                      <div className='pt-5'>
+                          {courseData.courseContent.map((chapter,index)=>(
+                            <div key={index} className='border border-gray-300 bg-white mb-2 rounded'>
+                                <div className='flex items-center justify-between px-4 py-3 cursor-pointer select-none'>
+                                  <div className='flex items-center gap-2'>
+                                    <img src={assets.down_arrow_head} alt="" className='w-5 h-5'/>
+                                    <p className='font-medium md:text-base text-sm '>{chapter.chapterTitle}</p>
+                                  </div>
+                                  <p className='text-sm md:text-default'>{chapter.chapterContent.length} lectures - {calculateChapterTime(chapter)}</p>
+                                </div>
+                            </div>
+                          ))}
+                      </div>
+
+
+                    </div>
           </div>
 
           {/* Right column (optional - you can place image/video/etc.) */}
