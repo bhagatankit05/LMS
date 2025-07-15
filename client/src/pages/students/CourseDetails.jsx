@@ -42,7 +42,7 @@ const CourseDetails = () => {
             <div
               className="pt-4 md:text-base text-sm"
               dangerouslySetInnerHTML={{
-                __html: courseData.courseDescription.slice(0, 500) + '...',
+                __html: courseData.courseDescription.slice(0, 200) + '...',
               }}
             ></div>
             {/* review and ratings*/}
@@ -96,9 +96,14 @@ const CourseDetails = () => {
                             </div>
                           ))}
                       </div>
-
-
                     </div>
+                    <div className='py-20 text-sm md:text-default'>
+                      <h3 className='text-xl font-semibold text-gray-800'>Course Description</h3>
+                      <p className="pt-3 rich-text"
+              dangerouslySetInnerHTML={{
+                __html: courseData.courseDescription}}></p>
+                    </div>
+
           </div>
 
           {/* Right column (optional - you can place image/video/etc.) */}
