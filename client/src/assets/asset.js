@@ -12,6 +12,7 @@ import gyaansetu_logo from './gyaansetu_logo.png'
 import cross from './cross.png'
 import down_arrow_head from './down_arrow_head.png'
 import play_icon from './play_icon.png'
+import time_left_clock_icon from './time_left_clock_icon.svg'
 
 
 export const assets = {
@@ -28,7 +29,8 @@ export const assets = {
   gyaansetu_logo:gyaansetu_logo,
   cross:cross,
   down_arrow_head:down_arrow_head,
-  play_icon:play_icon
+  play_icon:play_icon,
+  time_left_clock_icon:time_left_clock_icon
 }
 
 export const dummyCourses = [

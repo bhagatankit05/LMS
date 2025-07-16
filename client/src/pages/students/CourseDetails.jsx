@@ -106,9 +106,16 @@ const CourseDetails = () => {
 
           </div>
 
-          {/* Right column (optional - you can place image/video/etc.) */}
+          {/* Right column */}
           <div className="w-full md:w-1/3">
-            {/* Placeholder for course image or media */}
+            <img src={courseData.courseThumbnail} alt="" />
+
+            <div className='pt-5'>
+                <div>
+                  <img className='w-3.5' src={assets.time_left_clock_icon} alt="time-left clock icon" />
+                  <p className='text-red-500'> <span className='font-medium'>5 days</span>left at this price!</p>
+                </div>
+            </div>
           </div>
         </div>
       </div>
