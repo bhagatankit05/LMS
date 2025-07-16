@@ -121,8 +121,15 @@ const CourseDetails = () => {
                   <p className='md:text-lg text-gray-500 line-through'>{currency}{courseData.coursePrice}</p>
                   <p className='md:text-lg text-gray-500'>{courseData.discount}% off</p>
                 </div>
-                <div>
-                  
+                <div className='flex items-center text-sm md:text-default gap-4 pt-2 md:pt-4 text-gray-500'>
+                  <div className='flex items-center gap-1'>
+                      <img className="w-5 h-5" src={assets.star_icon} alt="star_icon" />
+                      <p>{calculateRating(courseData)}</p>
+                  </div>
+                  <div className=''>
+
+                  </div>
+
                 </div>
             </div>
           </div>
