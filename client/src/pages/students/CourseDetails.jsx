@@ -126,9 +126,18 @@ const CourseDetails = () => {
                       <img className="w-5 h-5" src={assets.star_icon} alt="star_icon" />
                       <p>{calculateRating(courseData)}</p>
                   </div>
-                  <div className=''>
-
+                  <div className='h-4 w-px bg-gray-500/40'> </div>
+                    <div className='flex items-center gap-1'>
+                      <img src={assets.time_clock_icon} alt="time_clock" />
+                      <p>{calculateCourseDuration(courseData)}</p>
                   </div>
+                 
+                 <div className='h-4 w-px bg-gray-500/40'> </div>
+                    <div className='flex items-center gap-1'>
+                      <img src={assets.lesson_icon} alt="lesson_icon" />
+                      <p>{calculateNoOfLectures(courseData)} lectures</p>
+                  </div>
+
 
                 </div>
             </div>
