@@ -4,6 +4,7 @@ import { AppContext } from '../../context/AppContext';
 import Loading from '../../components/students/Loading';
 import { assets } from '../../assets/asset';
 import humanizeDuration from 'humanize-duration';
+import Footer from '../../components/students/Footer';
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -159,6 +160,7 @@ const CourseDetails = () => {
           </div>
         </div>
       </div>
+        <Footer/>
     </>
   ) : (
     <Loading />
