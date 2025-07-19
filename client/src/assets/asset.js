@@ -13,7 +13,8 @@ import cross from './cross.png'
 import down_arrow_head from './down_arrow_head.png'
 import play_icon from './play_icon.png'
 import time_left_clock_icon from './time_left_clock_icon.svg'
-
+import time_clock_icon from './time_clock_icon.svg'
+import lesson_icon from './lesson_icon.svg'
 
 export const assets = {
   logo1: logo1,
@@ -30,7 +31,10 @@ export const assets = {
   cross:cross,
   down_arrow_head:down_arrow_head,
   play_icon:play_icon,
-  time_left_clock_icon:time_left_clock_icon
+  time_left_clock_icon:time_left_clock_icon,
+  time_clock_icon:time_clock_icon,
+  lesson_icon:lesson_icon,
+
 }
 
 export const dummyCourses = [
