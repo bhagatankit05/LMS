@@ -29,7 +29,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     fetchCourseData();
-  }, []);
+  }, [allCourses]);
 
   const toggleSection = (index) => {
     setOpenSections((prev) => ({
@@ -132,7 +132,7 @@ const CourseDetails = () => {
                     height: '100%',
                     playerVars: { autoplay: 1 }
                   }}
-                  className="w-full h-full"
+                  classNamew="w-full h-full"
                 />
               </div>
             ) : (
