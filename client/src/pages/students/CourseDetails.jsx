@@ -132,7 +132,7 @@ const CourseDetails = () => {
                     height: '100%',
                     playerVars: { autoplay: 1 }
                   }}
-                  classNamew="w-full h-full"
+                  className="w-full h-full"
                 />
               </div>
             ) : (
