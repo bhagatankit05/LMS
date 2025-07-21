@@ -1,9 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../../context/AppContext'
 import e from 'cors';
 
 const MyEnrollment = () => {
-  const { enrolledCourses, calculateCourseDuration } = useContext(AppContext);
+  const { enrolledCourses, calculateCourseDuration , navigate} = useContext(AppContext);
+
+  const[progressArray ,  setProgressArray] = useState([
+    {lectureCompleted : 4,totalLectures : 7},
+    {lectureCompleted : 0,totalLectures : 10},
+    {lectureCompleted : 6,totalLectures : 7},
+    {lectureCompleted : 4,totalLectures : 10},
+    {lectureCompleted : 3,totalLectures : 6},
+    {lectureCompleted : 4,totalLectures : 10},
+    {lectureCompleted : 3,totalLectures : 7},
+    {lectureCompleted : 4,totalLectures : 10},
+    {lectureCompleted : 6,totalLectures : 6},
+  ]);
   return (
     <>
       <div className='md:px-36 px-8 pt-10'>
@@ -32,12 +44,12 @@ const MyEnrollment = () => {
                   {calculateCourseDuration(course)}
                 </td>
                 <td className='px-4 py-3 max-sm:hidden'>
-                  4 / 10 <span>Lectures</span>
+                  {progressArray[index] && `${progressArray[index].lectureCompleted} / ${progressArray[index].totalLectures}`} <span>Lectures</span>
                 </td>
 
                 <td className='px-4 py-3 max-sm:text-right'>
-                  <button className='px-3 sm:px-5 py-1.5 sm:py-2 bg-orange-400 text-white rounded hover:bg-orange-500 transition-colors duration-200'>
-                    On Going
+                  <button className='px-3 sm:px-5 py-1.5 sm:py-2 bg-orange-400 text-white rounded hover:bg-orange-500 transition-colors duration-200 cursor-pointer' onClick={() => navigate('/player/'+course._id)}>
+                   {progressArray[index] && progressArray[index].lectureCompleted / progressArray[index].totalLectures === 1?'Completed':'On going'} 
                   </button>
                 </td>
               </tr>
