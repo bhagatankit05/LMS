@@ -8,7 +8,7 @@ import Footer from '../../components/students/Footer.jsx';
 
 const CoursePlayer = () => {
   const {enrolledCourses ,calculateChapterTime } = useContext(AppContext);
-  const {courseId} = useParams();
+  const {courseID} = useParams(); // Fixed: parameter name should match the route
   const [courseData,setCourseData] = useState(null);
   const [openSections,setOpenSections] = useState({});
   const [playerData,setPlayerData] = useState(null);
@@ -16,12 +16,25 @@ const CoursePlayer = () => {
 
 
   const getCourseData = () => {
-  enrolledCourses.map((course) => {
-    if (course._id === courseId) {
-      setCourseData(course);
+    // Fixed: Use find instead of map to properly get the course
+    const foundCourse = enrolledCourses.find((course) => course._id === courseID);
+    if (foundCourse) {
+      setCourseData(foundCourse);
+      // Set the first lecture as default player data
+      if (foundCourse.courseContent && foundCourse.courseContent.length > 0) {
+        const firstChapter = foundCourse.courseContent[0];
+        if (firstChapter.chapterContent && firstChapter.chapterContent.length > 0) {
+          setPlayerData({
+            ...firstChapter.chapterContent[0],
+            chapter: 1,
+            lecture: 1
+          });
+        }
+      }
+    } else {
+      console.error('Course not found with ID:', courseID);
     }
-  });
-};
+  };
 
 
   const toggleSection = (index) => {
@@ -32,18 +45,23 @@ const CoursePlayer = () => {
   };
 
   useEffect(()=>{
-    getCourseData()
-  },[enrolledCourses]);
+    if (enrolledCourses && enrolledCourses.length > 0) {
+      getCourseData();
+    }
+  },[enrolledCourses, courseID]); // Added courseID as dependency
 
   return (
     <>
-      <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36'>
+      <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36 min-h-screen'>
         {/*Left column */}
         <div className='text-gray-800'>
-          <h2 className='text-xl font-semibold'>Course Structure</h2>
+          <h2 className='text-xl font-semibold mb-4'>
+            {courseData ? courseData.courseTitle : 'Loading...'}
+          </h2>
+          <h3 className='text-lg font-medium mb-4'>Course Structure</h3>
 
           <div className='pt-5'>
-            { courseData && courseData.courseContent.map((chapter, index) => (
+            {courseData && courseData.courseContent ? courseData.courseContent.map((chapter, index) => (
               <div key={index} className='border border-gray-300 bg-white mb-2 rounded'>
                 <div className='flex items-center justify-between px-4 py-3 cursor-pointer select-none' onClick={() => toggleSection(index)}>
                   <div className='flex items-center gap-2'>
@@ -57,7 +75,7 @@ const CoursePlayer = () => {
                   <ul className='list-disc md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300'>
                     {chapter.chapterContent.map((lecture, i) => (
                       <li key={i} className='flex items-start gap-2 py-1'>
-                        <img src={false? assets.blue_tick_icon : assets.play_icon} alt="play-icon" className='w-4 h-4 mt-1' />
+                        <img src={false ? assets.blue_tick_icon : assets.play_icon} alt="play-icon" className='w-4 h-4 mt-1' />
                         <div className='flex items-center justify-between w-full text-gray-800 text-sm md:text-default'>
                           <p>{lecture.lectureTitle}</p>
                           <div className='flex gap-2 '>
@@ -79,7 +97,11 @@ const CoursePlayer = () => {
                 </div>
 
               </div>
-            ))}
+            )) : (
+              <div className='text-center py-8'>
+                <p className='text-gray-500'>Loading course content...</p>
+              </div>
+            )}
           </div>
           <div className='flex items-center gap-2 py-3 mt-10'>
             <h1 className='text-xl font-bold'>Rate This Course:</h1>
@@ -88,7 +110,7 @@ const CoursePlayer = () => {
 
         {/*Right column */}
         <div className='md:mt-10'>
-            {playerData?  (
+            {playerData && playerData.lectureUrl ? (
               <div>
                   <YouTube
                   videoId={playerData.lectureUrl.split('/').pop()}
@@ -99,8 +121,15 @@ const CoursePlayer = () => {
                     <button className='text-blue-600'>{false ? 'Completed' : 'Mark Complete'}</button>
                   </div>
               </div>
-
-            ) : <img src={courseData ? courseData.courseThumbnail:''} alt="" />}
+            ) : (
+              <div className='w-full aspect-video bg-gray-200 flex items-center justify-center'>
+                {courseData ? (
+                  <img src={courseData.courseThumbnail} alt="Course thumbnail" className='w-full h-full object-cover' />
+                ) : (
+                  <p className='text-gray-500'>Loading...</p>
+                )}
+              </div>
+            )}
             
         </div>
       </div>
