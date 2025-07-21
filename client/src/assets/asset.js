@@ -15,6 +15,7 @@ import play_icon from './play_icon.png'
 import time_left_clock_icon from './time_left_clock_icon.svg'
 import time_clock_icon from './time_clock_icon.svg'
 import lesson_icon from './lesson_icon.svg'
+import blue_tick_icon from './blue_tick_icon.svg'
 
 export const assets = {
   logo1: logo1,
@@ -34,6 +35,7 @@ export const assets = {
   time_left_clock_icon:time_left_clock_icon,
   time_clock_icon:time_clock_icon,
   lesson_icon:lesson_icon,
+  blue_tick_icon:blue_tick_icon
 
 }
 
