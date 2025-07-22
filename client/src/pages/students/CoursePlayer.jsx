@@ -5,6 +5,7 @@ import { assets } from '../../assets/asset.js';
 import humanizeDuration from 'humanize-duration';
 import YouTube from 'react-youtube';
 import Footer from '../../components/students/Footer.jsx';
+import Rating from '../../components/students/Rating.jsx';
 
 const CoursePlayer = () => {
   const {enrolledCourses ,calculateChapterTime } = useContext(AppContext);
@@ -105,6 +106,7 @@ const CoursePlayer = () => {
           </div>
           <div className='flex items-center gap-2 py-3 mt-10'>
             <h1 className='text-xl font-bold'>Rate This Course:</h1>
+            <Rating initialRating={0}/>
           </div>
         </div>
 
