@@ -17,6 +17,10 @@ import time_clock_icon from './time_clock_icon.svg'
 import lesson_icon from './lesson_icon.svg'
 import blue_tick_icon from './blue_tick_icon.svg'
 import profile_img from './profile_img.png'
+import home_icon from './home_icon.svg'
+import my_course_icon from './my_course_icon.svg'
+import person_tick_icon from './person_tick_icon.svg'
+import add_icon from './add_icon.svg'
 
 export const assets = {
   logo1: logo1,
@@ -37,7 +41,11 @@ export const assets = {
   time_clock_icon:time_clock_icon,
   lesson_icon:lesson_icon,
   blue_tick_icon:blue_tick_icon,
-  profile_img:profile_img
+  profile_img:profile_img,
+  add_icon:add_icon,
+  home_icon:home_icon,
+  person_tick_icon:person_tick_icon,
+  my_course_icon:my_course_icon
 
 }
 
