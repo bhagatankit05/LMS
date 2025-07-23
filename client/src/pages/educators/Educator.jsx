@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/educators/Navbar'
 import Sidebar from '../../components/educators/Sidebar'
+import Footer from '../../components/educators/Footer'
 
 const Educator = () => {
   return (
@@ -13,6 +14,7 @@ const Educator = () => {
             {<Outlet />  }    {/* This is where the nested routes will be rendered */}
             </div>
       </div>
+      <Footer/>
     </div>
   )
 }
