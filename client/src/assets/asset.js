@@ -21,6 +21,12 @@ import home_icon from './home_icon.svg'
 import my_course_icon from './my_course_icon.svg'
 import person_tick_icon from './person_tick_icon.svg'
 import add_icon from './add_icon.svg'
+import facebook_icon from './facebook_icon.svg'
+import instagram_icon from './instagram_icon.svg'
+import twitter_icon from './twitter_icon.svg'
+import earning_icon from './earning_icon.svg'
+import appointments_icon from './appointments_icon.svg'
+import patients_icon from './patients_icon.svg'
 
 export const assets = {
   logo1: logo1,
@@ -45,7 +51,13 @@ export const assets = {
   add_icon:add_icon,
   home_icon:home_icon,
   person_tick_icon:person_tick_icon,
-  my_course_icon:my_course_icon
+  my_course_icon:my_course_icon,
+  instagram_icon:instagram_icon,
+  facebook_icon:facebook_icon,
+  twitter_icon:twitter_icon,
+  patients_icon:patients_icon,
+  appointments_icon:appointments_icon,
+  earning_icon:earning_icon
 
 }
 
