@@ -57,31 +57,33 @@ const Dashboard = () => {
 
         <div>
           <h2 className='pb-4 text-lg font-medium'>Latest Enrollments</h2>
-          <div className='flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20'>
-            <table>
-              <thead className='text-gray-900 border-b border-gray-500/20 text-sm text-left'>
+          <div className='overflow-x-auto w-full max-w-4xl rounded-md shadow-md border border-gray-300 bg-white'>
+            <table className='min-w-full border-collapse'>
+              <thead className='bg-gray-100 text-gray-700 text-sm font-semibold'>
                 <tr>
-                  <th className='px-4 py-3 font-semibold text-center hidden sm:table-cell'>#</th>
-                  <th className='px-4 py-3 font-semibold'>Student Name</th>
-                  <th className='px-4 py-3 font-semibold'>Course Title</th>
+                  <th className='px-4 py-3 text-center hidden sm:table-cell border-b border-gray-300'>#</th>
+                  <th className='px-4 py-3 text-left border-b border-gray-300'>Student Name</th>
+                  <th className='px-4 py-3 text-left border-b border-gray-300'>Course Title</th>
                 </tr>
               </thead>
 
-              <tbody className='text-sm text-gray-500'>
-                {dashboardData.enrolledStudentsData.map((item,index)=>(
-                  <tr key={index} className='border-b border-gray-500/20'>
+              <tbody className='text-sm text-gray-700'>
+                {dashboardData.enrolledStudentsData.map((item, index) => (
+                  <tr key={index} className='hover:bg-gray-50 transition-colors border-b border-gray-200'>
                     <td className='px-4 py-3 text-center hidden sm:table-cell'>
-                      {index +1}
+                      {index + 1}
                     </td>
-                    <td className='md:px-4 px-2 py-3 flex items-center space-x-3'>
-                      <img src={item.student.imageUrl} alt="Profile" className='w-9 h-9 rounded-full' />
+                    <td className='md:px-4 px-2 py-3 flex items-center gap-3'>
+                      <img
+                        src={item.student.imageUrl}
+                        alt="Profile"
+                        className='w-9 h-9 rounded-full object-cover border border-gray-300'
+                      />
                       <span className='truncate'>{item.student.name}</span>
                     </td>
                     <td className='px-4 py-3 truncate'>{item.courseTitle}</td>
                   </tr>
-
                 ))}
-
               </tbody>
             </table>
           </div>
