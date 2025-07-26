@@ -27,6 +27,7 @@ import twitter_icon from './twitter_icon.svg'
 import earning_icon from './earning_icon.svg'
 import appointments_icon from './appointments_icon.svg'
 import patients_icon from './patients_icon.svg'
+import file_upload_icon from './file_upload_icon.svg'
 
 export const assets = {
   logo1: logo1,
@@ -57,7 +58,8 @@ export const assets = {
   twitter_icon:twitter_icon,
   patients_icon:patients_icon,
   appointments_icon:appointments_icon,
-  earning_icon:earning_icon
+  earning_icon:earning_icon,
+  file_upload_icon:file_upload_icon
 
 }
 
