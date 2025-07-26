@@ -3,43 +3,47 @@ import { dummyStudentEnrolled } from '../../assets/asset'
 import Loading from '../../components/students/Loading';
 
 const StudentsEnrolled = () => {
-
   const [enrolledStudents, setEnrolledStudents] = useState(null);
 
   const fetchEnrolledStudents = async () => {
     setEnrolledStudents(dummyStudentEnrolled);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchEnrolledStudents();
-  },[])
-  return  enrolledStudents ? (
-    <div className='min-h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0'>
-      <div className='flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20'>
-        <table className='table-fixed md:table-auto w-full overflow-hidden pb-4'>
-          <thead className='text-gray-900 border-b border-gray-500/20 text-sm text-left'>
-          <tr>
-            <th className='px-4 py-3 font-semibold text-center hidden sm:table-cell'>#</th>
-            <th className='px-4 py-3 font-semibold'>Student Name</th>
-            <th className='px-4 py-3 font-semibold'>Course Title</th>
-            <th className='px-4 py-3 font-semibold hidden sm:table-cell'>Date</th>
-          </tr>
-          </thead>
+  }, []);
 
-          <tbody className='text-sm text-gray-500'>
-            {enrolledStudents.map((item , index) => (
-              <tr key={index} className='border-b border-gray-500/20'>
-                <td className='px-4 py-3 text-center hidden sm:table-cell'>{index + 1}</td>
-                <td className='truncate px-4 py-3'>{item.student.name}</td>
-                <td className='px-4 py-3 truncate'>{item.courseTitle}</td>
-                <td className='px-4 py-3 hidden sm:table-cell'>{new Date(item.purchaseDate).toLocaleDateString()}</td>
+  return enrolledStudents ? (
+    <div className='min-h-screen flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0'>
+      <div className='w-full'>
+        <h2 className='pb-4 text-lg font-medium'>Enrolled Students</h2>
+
+        <div className='overflow-x-auto w-full max-w-4xl rounded-md shadow-md border border-gray-300 bg-white'>
+          <table className='min-w-full border-collapse'>
+            <thead className='bg-gray-100 text-gray-700 text-sm font-semibold'>
+              <tr>
+                <th className='px-4 py-3 text-center hidden sm:table-cell border-b border-gray-300'>Sr. No</th>
+                <th className='px-4 py-3 text-left border-b border-gray-300'>Student Name</th>
+                <th className='px-4 py-3 text-left border-b border-gray-300'>Course Title</th>
+                <th className='px-4 py-3 text-left hidden sm:table-cell border-b border-gray-300'>Date</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody className='text-sm text-gray-700'>
+              {enrolledStudents.map((item, index) => (
+                <tr key={index} className='hover:bg-gray-50 transition-colors border-b border-gray-200'>
+                  <td className='px-4 py-3 text-center hidden sm:table-cell'>{index + 1}</td>
+                  <td className='px-4 py-3 truncate'>{item.student.name}</td>
+                  <td className='px-4 py-3 truncate'>{item.courseTitle}</td>
+                  <td className='px-4 py-3 hidden sm:table-cell'>{new Date(item.purchaseDate).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  ) :<Loading/>
+  ) : <Loading />;
 }
 
-export default StudentsEnrolled
+export default StudentsEnrolled;
