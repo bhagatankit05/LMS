@@ -12,7 +12,7 @@ const app = express();
 
 //Connect to DataBase.
 await connectDB()
-await connectCloudinary
+await connectCloudinary()
 
 app.use(express.json()); // Global JSON parsing
 
