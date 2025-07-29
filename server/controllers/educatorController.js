@@ -96,7 +96,7 @@ export const educatorDashboardData = async (req,res) => {
             });
         }
         res.json({success:true,dashboardData:{
-            totalEarnings,enrolledStudents,totalCourses
+            totalEarnings,enrolledStudentsData,totalCourses
         }})
 
     } catch (error) {
