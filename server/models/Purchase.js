@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const purchaseSchema = new mongoose.Schema(
     {
@@ -15,11 +15,12 @@ const purchaseSchema = new mongoose.Schema(
         amount: {
             type: Number, required: true
         },
-        status:{
-            type:String, enum:['pending','completed','failed']
-        ,default:'pending'}
+        status: {
+            type: String, enum: ['pending', 'completed', 'failed'],
+            default: 'pending'
+        }
 
-    },{timestamps:true}
+    }, { timestamps: true }
 );
 
- export const Purchase = mongoose.model('Purchase',purchaseSchema)
+export const Purchase = mongoose.model('Purchase', purchaseSchema);
