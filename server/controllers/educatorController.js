@@ -118,7 +118,7 @@ export const getEnrolledStudentsData = async ()=>{
 
           const enrolledStudents = purchases.map(purchase => ({
             student:purchase.userId,
-            courseTitle : purchase.courseId.courseTitle,
+            courseTitle : purchase.courseID.courseTitle,
             purchaseDate : purchase.createdAt
 
           }));
