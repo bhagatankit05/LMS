@@ -6,35 +6,35 @@ import humanizeDuration from 'humanize-duration';
 import YouTube from 'react-youtube';
 import Footer from '../../components/students/Footer.jsx';
 import Rating from '../../components/students/Rating.jsx';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const CoursePlayer = () => {
-  const {enrolledCourses ,calculateChapterTime } = useContext(AppContext);
+  const {enrolledCourses ,calculateChapterTime ,backendUrl , getToken , userData , fetchUserEnrolledCourses} = useContext(AppContext);
   const {courseID} = useParams(); // Fixed: parameter name should match the route
   const [courseData,setCourseData] = useState(null);
   const [openSections,setOpenSections] = useState({});
   const [playerData,setPlayerData] = useState(null);
+  const [progressData , setProgressData] = useState(null);
+  const [initialRating ,setInitialRating] = useState(0);
+
+
+
 
 
 
   const getCourseData = () => {
-    // Fixed: Use find instead of map to properly get the course
-    const foundCourse = enrolledCourses.find((course) => course._id === courseID);
-    if (foundCourse) {
-      setCourseData(foundCourse);
-      // Set the first lecture as default player data
-      if (foundCourse.courseContent && foundCourse.courseContent.length > 0) {
-        const firstChapter = foundCourse.courseContent[0];
-        if (firstChapter.chapterContent && firstChapter.chapterContent.length > 0) {
-          setPlayerData({
-            ...firstChapter.chapterContent[0],
-            chapter: 1,
-            lecture: 1
-          });
-        }
+    enrolledCourses.map((course) =>{
+      if(course._id === courseID){
+        setCourseData(course)
+        course.courseRatings.map((item)=>{
+          if (item.userId === userData._id) {
+            setInitialRating(item.rating)
+          }
+          
+        })
       }
-    } else {
-      console.error('Course not found with ID:', courseID);
-    }
+    })
   };
 
 
@@ -46,10 +46,27 @@ const CoursePlayer = () => {
   };
 
   useEffect(()=>{
-    if (enrolledCourses && enrolledCourses.length > 0) {
+    if (enrolledCourses.length > 0) {
       getCourseData();
     }
-  },[enrolledCourses, courseID]); // Added courseID as dependency
+  },[enrolledCourses]);
+
+  const markLectureAsCompleted = async (lectureId)=>{
+    try {
+      const token  = await getToken()
+      const {data} = await axios.post(backendUrl + '/api/user/update-course-progress' , {courseID , lectureId}, {headers:{Authorization:`Bearer ${token}`}})
+
+      if (data.success) {
+        toast.success(data.message)
+      }else{
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  
 
   return (
     <>
