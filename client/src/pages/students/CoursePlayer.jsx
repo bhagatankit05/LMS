@@ -8,6 +8,7 @@ import Footer from '../../components/students/Footer.jsx';
 import Rating from '../../components/students/Rating.jsx';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Loading from '../../components/students/Loading.jsx';
 
 const CoursePlayer = () => {
   const {enrolledCourses ,calculateChapterTime ,backendUrl , getToken , userData , fetchUserEnrolledCourses} = useContext(AppContext);
@@ -84,8 +85,30 @@ const CoursePlayer = () => {
     }
   }
 
+  const handleRate = async (rating) =>{
+    try {
+      const token = await getToken()
+      const {data} = await axios.post(backendUrl + '/api/user/add-rating' , {courseID , rating }, {headers :{Authorization: `Bearer ${token}`}})
 
-  return (
+      if(data.success){
+        toast.success(data.message)
+        fetchUserEnrolledCourses();
+      }
+      else{
+        toast.error(data.message)
+      }
+    } catch (error) {
+        toast.error(error.message)
+    }
+  }
+
+  useEffect(()=>{
+    getCourseProgress();
+
+  },[])
+
+
+  return courseData ? (
     <>
       <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36 min-h-screen'>
         {/*Left column */}
@@ -110,7 +133,7 @@ const CoursePlayer = () => {
                   <ul className='list-disc md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300'>
                     {chapter.chapterContent.map((lecture, i) => (
                       <li key={i} className='flex items-start gap-2 py-1'>
-                        <img src={false ? assets.blue_tick_icon : assets.play_icon} alt="play-icon" className='w-4 h-4 mt-1' />
+                        <img src={progressData && progressData.lectureCompleted.includes(lecture.lectureId)  ? assets.blue_tick_icon : assets.play_icon} alt="play-icon" className='w-4 h-4 mt-1' />
                         <div className='flex items-center justify-between w-full text-gray-800 text-sm md:text-default'>
                           <p>{lecture.lectureTitle}</p>
                           <div className='flex gap-2 '>
@@ -140,7 +163,7 @@ const CoursePlayer = () => {
           </div>
           <div className='flex items-center gap-2 py-3 mt-10'>
             <h1 className='text-xl font-bold'>Rate This Course:</h1>
-            <Rating initialRating={0}/>
+            <Rating initialRating={initialRating} onRate={handleRate}/>
           </div>
         </div>
 
@@ -154,7 +177,7 @@ const CoursePlayer = () => {
                   />
                   <div className='flex justify-between items-center mt-1'>
                     <p>{playerData.chapter}.{playerData.lecture}{playerData.lectureTitle}</p>
-                    <button className='text-blue-600'>{false ? 'Completed' : 'Mark Complete'}</button>
+                    <button onClick={()=>markLectureAsCompleted(playerData.lectureId)} className='text-blue-600'>{progressData && progressData.lectureCompleted.includes(playerData.lectureId) ? 'Completed' : 'Mark Complete'}</button>
                   </div>
               </div>
             ) : (
@@ -171,7 +194,7 @@ const CoursePlayer = () => {
       </div>
       <Footer/>
     </>
-  )
+  ):<Loading/>
 }
 
 export default CoursePlayer
