@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className='flex flex-col md:items-start items-center w-full '>
                     <img src={assets.gyaansetu_logo} alt="logo" className='w-28 lg:w-32  rounded' />
                     <p className='mt-6 text-center md:text-left text-sm text-gray-800/80'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolor, soluta dolorem inventore voluptas esse beatae cumque aliquid vel id. Asperiores sed culpa repellat, magnam quae quam illo facilis facere?
+                       GyaanSetu bridges the gap between learners and knowledge through practical, industry-oriented online courses guided by expert educators.
                     </p>
                 </div>
 
