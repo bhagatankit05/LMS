@@ -106,7 +106,7 @@ export const educatorDashboardData = async (req,res) => {
 }
 
 //get enrolled student data with Purchase Data
-export const getEnrolledStudentsData = async ()=>{
+export const getEnrolledStudentsData = async (req,res)=>{
     try {
          const educator = req.auth.userId;
           const courses = await Course.find({ educator })
