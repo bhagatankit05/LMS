@@ -29,8 +29,8 @@ app.get('/',(req,res)=> res.send("API is Working"))
 app.post('/clerk', clerkWebhooks)
 
 app.use('/api/educator',educatorRouter);
-app.use('api/course',courseRouter);
-app.use('api/user',userRouter)
+app.use('/api/course',courseRouter);
+app.use('/api/user',userRouter)
 app.post('/stripe',express.raw({type:'application/json'}),stripeWebHooks)
 
 //port
